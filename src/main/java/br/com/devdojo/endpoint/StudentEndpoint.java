@@ -4,6 +4,7 @@ import br.com.devdojo.error.CustomErrorType;
 import br.com.devdojo.error.ResourceNotFoundException;
 import br.com.devdojo.model.Student;
 import br.com.devdojo.repository.StudentRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,8 +26,8 @@ public class StudentEndpoint {
     }
 
     @GetMapping
-    public ResponseEntity<?> listAll(){
-        return new ResponseEntity<>(studantDAO.findAll(), HttpStatus.OK);
+    public ResponseEntity<?> listAll(Pageable pageable){
+        return new ResponseEntity<>(studantDAO.findAll(pageable), HttpStatus.OK);
     }
 
     @GetMapping(path = "/{id}")
