@@ -52,6 +52,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <version>5.2.1.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
@@ -67,6 +74,8 @@
             <artifactId>h2</artifactId>
             <scope>test</scope>
         </dependency>
+
+
 
     </dependencies>
 
