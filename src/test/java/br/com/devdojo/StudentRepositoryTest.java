@@ -22,7 +22,7 @@ public class StudentRepositoryTest {
     @Autowired
     private StudentRepository studentRepository;
 
-    @Test
+    /*@Test
     public void createShouldPersistData() {
         Student student = new Student("Thiago", "thiago@devdojo.com.br");
         this.studentRepository.save(student);
@@ -67,6 +67,6 @@ public class StudentRepositoryTest {
         Assertions.assertThrows(
                 ConstraintViolationException.class,
                 () -> studentRepository.save(new Student("luiz", "INVALID")));
-    }
+    }*/
 }
 

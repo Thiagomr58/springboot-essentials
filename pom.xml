@@ -6,11 +6,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.1.RELEASE</version>
+
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.devdojo</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1</version>
+    <packaging>jar</packaging>
     <name>demo</name>
     <description>Curso de SpringBoot do DevDojo</description>
 
@@ -80,10 +82,15 @@
     </dependencies>
 
     <build>
+        <!-- Toda vez que eu gerar um jar da aplicação, ele ficará com o nome especificado em <finalName> </finalName>-->
+        <finalName>devdojo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
             </plugin>
         </plugins>
     </build>
