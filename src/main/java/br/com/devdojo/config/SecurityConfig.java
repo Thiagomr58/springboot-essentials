@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
 
 import static br.com.devdojo.config.SecurityConstants.SIGN_UP_URL;
 
@@ -37,7 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // usando JWTToken Authentication
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().authorizeRequests()
+        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())// liberar acesso de aplicação frontend
+                .and().csrf().disable()
+                .authorizeRequests()
                 .antMatchers(HttpMethod.GET, SIGN_UP_URL).permitAll();
         http.authorizeRequests()
                 .antMatchers("/*/protected/**").hasRole("USER")

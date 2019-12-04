@@ -2,6 +2,7 @@ package br.com.devdojo.config;
 
 import br.com.devdojo.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.xml.internal.bind.v2.TODO;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -58,7 +59,10 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                         setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .compact();
-        response.addHeader(HEADER_STRING, TOKEN_PREFIX+ token);
+
+        String bearerTohen = TOKEN_PREFIX + token;
+        response.getWriter().write(bearerTohen); // exibir o token no body
+        response.addHeader(HEADER_STRING, bearerTohen); // exibe o token no header ( padrão )
 
 
     }
