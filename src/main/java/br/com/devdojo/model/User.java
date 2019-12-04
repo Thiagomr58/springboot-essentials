@@ -17,7 +17,6 @@ public class User extends AbstractEntity {
     private String username;
 
     @NotEmpty
-    @JsonIgnore
     private String password;
 
     @NotEmpty
